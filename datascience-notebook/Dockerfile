@@ -5,6 +5,8 @@ FROM $BASE_CONTAINER
 
 LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
 
+RUN echo "$NB_USER ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/notebook
+
 # Set when building on Travis so that certain long-running build steps can
 # be skipped to shorten build time.
 ARG TEST_ONLY_BUILD
